@@ -59,4 +59,12 @@ public class MockController {
         user2.setName(name);
         return userServices.addUser(user2);
     }
+
+    //@RequestBody
+    @RequestMapping(value = "getUserNum", method = {RequestMethod.GET, RequestMethod.POST})
+    public @ResponseBody
+    String getUserNum(HttpServletRequest request) {
+        logger.debug(request.getRemoteAddr());
+        return userServices.getUserNum();
+    }
 }
