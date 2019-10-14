@@ -4,13 +4,11 @@ import com.alibaba.fastjson.JSONObject;
 import mock.mockdemo.bean.User;
 import mock.mockdemo.bean.res.UserRes;
 import mock.mockdemo.conf.MockConf;
-import mock.mockdemo.controller.MockController;
 import mock.mockdemo.services.UserServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;

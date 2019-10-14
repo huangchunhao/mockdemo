@@ -2,6 +2,7 @@ package mock.mockdemo.controller;
 
 import mock.mockdemo.bean.User;
 import mock.mockdemo.services.UserServices;
+import mock.util.ParamsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,13 @@ public class MockController {
     //@RequestParam
     @RequestMapping(value = "addUser_param", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
-    String addUser_params(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("age") String age) {
+    String addUser_params(HttpServletRequest request, @RequestBody String body,@RequestParam("name") String name, @RequestParam("age") String age) {
+        logger.debug("请求内容：{}",body);
+        try {
+            logger.debug("将请求内容转成map：{}",ParamsUtil.getParm(body));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         logger.debug(request.getRemoteAddr());
         User user2 = new User();
         user2.setAge(age);
