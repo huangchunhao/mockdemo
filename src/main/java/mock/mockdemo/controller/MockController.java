@@ -1,5 +1,6 @@
 package mock.mockdemo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import mock.mockdemo.bean.User;
 import mock.mockdemo.services.UserServices;
 import mock.util.ParamsUtil;
@@ -50,7 +51,7 @@ public class MockController {
         return userServices.addUser(user);
     }
 
-    //@RequestParam
+    //@RequestParam 和 @RequestBody同时存在
     @RequestMapping(value = "addUser_param", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String addUser_params(HttpServletRequest request, @RequestBody String body,@RequestParam("name") String name, @RequestParam("age") String age) {
