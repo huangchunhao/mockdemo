@@ -1,6 +1,5 @@
 package mock.mockdemo.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import mock.mockdemo.bean.User;
 import mock.mockdemo.services.UserServices;
 import mock.util.ParamsUtil;
@@ -22,6 +21,15 @@ public class MockController {
 
 
     //@RequestBody
+    /**
+    *
+     * @Description:  @RequestBody
+     * @Author: huangchunhao
+     * @Date: 2022/3/29 10:44 AM
+     * @param request:
+     * @param user:
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "addUser", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String addUser(HttpServletRequest request, @RequestBody User user) {
@@ -30,6 +38,17 @@ public class MockController {
     }
 
     //@RequestHeader
+    /**
+    *
+     * @Description: @RequestHeader
+     * @Author: huangchunhao
+     * @Date: 2022/3/29 10:45 AM
+     * @param request:
+     * @param user:
+     * @param encoding:
+     * @param type:
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "addUser/header", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String addUser_header(HttpServletRequest request, @RequestBody User user,@RequestHeader("Accept-Encoding") String encoding,@RequestHeader("Content-Type") String type) {
@@ -41,6 +60,16 @@ public class MockController {
 
 
     //@PathVariable
+    /**
+    *
+     * @Description: @PathVariable
+     * @Author: huangchunhao
+     * @Date: 2022/3/29 10:45 AM
+     * @param request:
+     * @param name:
+     * @param age:
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "addUser/{name}/{age}", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String addUser_path(HttpServletRequest request, @PathVariable("name") String name, @PathVariable("age") String age) {
@@ -52,6 +81,17 @@ public class MockController {
     }
 
     //@RequestParam 和 @RequestBody同时存在
+    /**
+    *
+     * @Description:  @RequestParam 和 @RequestBody同时存在
+     * @Author: huangchunhao
+     * @Date: 2022/3/29 10:45 AM
+     * @param request:
+     * @param body:
+     * @param name:
+     * @param age:
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "addUser_param", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String addUser_params(HttpServletRequest request, @RequestBody String body,@RequestParam("name") String name, @RequestParam("age") String age) {
@@ -69,6 +109,14 @@ public class MockController {
     }
 
     //@RequestBody
+    /**
+    *
+     * @Description:@RequestBody
+     * @Author: huangchunhao
+     * @Date: 2022/3/29 10:45 AM
+     * @param request:
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "getUserNum", method = {RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody
     String getUserNum(HttpServletRequest request) {
